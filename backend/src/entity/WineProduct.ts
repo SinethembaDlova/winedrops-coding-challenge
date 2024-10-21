@@ -4,14 +4,14 @@ import { MasterWine } from './MasterWine';
 @Entity()
 export class WineProduct {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @ManyToOne(() => MasterWine)
-  master_wine: MasterWine;
+  master_wine!: MasterWine;
 
   @Column()
-  name: string;
+  name!: string;
 
   @Column('decimal')
-  price: number;
+  price!: number;
 }
