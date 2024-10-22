@@ -62,30 +62,4 @@ export default async function productRoutes(fastify: FastifyInstance) {
     await productRepository.save(newProducts);
     reply.send(newProducts);
   });
-
-  // Route to create an order
-  fastify.post<{ Body: OrderRequestBody }>('/orders', async (request, reply) => {
-    const orderRepository = AppDataSource.getRepository(CustomerOrder);
-    const { wine_product_id, quantity, total_amount, status } = request.body;
-
-    const newOrder = orderRepository.create({
-      wine_product: { id: wine_product_id }, // Reference WineProduct entity by ID
-      quantity,
-      total_amount,
-      status,
-    });
-
-    await orderRepository.save(newOrder);
-    reply.send(newOrder);
-  });
-
-  // Route to get all orders
-  fastify.get('/orders', async (request, reply) => {
-    const orderRepository = AppDataSource.getRepository(CustomerOrder);
-    const orders = await orderRepository.find({
-      relations: ['wine_product', 'wine_product.master_wine'],
-    });
-
-    reply.send(orders);
-  });
 }
