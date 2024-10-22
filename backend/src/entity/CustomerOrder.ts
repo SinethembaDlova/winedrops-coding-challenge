@@ -9,12 +9,12 @@ export class CustomerOrder {
   @ManyToOne(() => WineProduct)
   wine_product!: WineProduct;
 
-  @Column('int')
+  @Column({ type: 'int' })
   quantity!: number;
 
-  @Column('decimal')
+  @Column({ type: 'float' })
   total_amount!: number;
 
-  @Column()
+  @Column({ type: 'varchar' })
   status!: string;
 }

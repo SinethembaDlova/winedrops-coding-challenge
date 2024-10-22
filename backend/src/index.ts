@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import 'reflect-metadata';
 import cors from '@fastify/cors';
 import wineRoutes from './routes/wine';
 import orderRoutes from './routes/order';

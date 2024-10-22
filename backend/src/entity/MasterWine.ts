@@ -5,9 +5,9 @@ export class MasterWine {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column()
+  @Column({ type: 'varchar' })
   name!: string;
 
-  @Column()
+  @Column({ type: 'int' })
   vintage!: number;
 }

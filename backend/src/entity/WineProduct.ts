@@ -9,9 +9,9 @@ export class WineProduct {
   @ManyToOne(() => MasterWine)
   master_wine!: MasterWine;
 
-  @Column()
+  @Column({ type: 'varchar' })
   name!: string;
 
-  @Column('decimal')
+  @Column({ type: 'float' })
   price!: number;
 }
