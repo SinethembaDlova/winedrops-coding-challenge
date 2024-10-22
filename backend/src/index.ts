@@ -1,5 +1,6 @@
 import Fastify from "fastify";
 import cors from '@fastify/cors';
+import wineRoutes from './routes/wine';
 
 (async () => {
   const server = Fastify({ logger: true });
@@ -9,6 +10,9 @@ import cors from '@fastify/cors';
   server.get("/hello", async () => {
     return { hello: "world" };
   });
+
+  wineRoutes(server);
+
 
   try {
     await server.listen({ port: 3000, host: '0.0.0.0' });
