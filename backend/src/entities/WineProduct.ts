@@ -1,17 +1,16 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { MasterWine } from './MasterWine';
 
-@Entity()
+@Entity('wine_product')
 export class WineProduct {
   @PrimaryGeneratedColumn()
-  id!: number;
-
-  @ManyToOne(() => MasterWine)
-  master_wine!: MasterWine;
-
-  @Column({ type: 'varchar' })
-  name!: string;
+  id!: number
 
   @Column({ type: 'float' })
   price!: number;
+
+  @ManyToOne(() => MasterWine)
+  master_wine!: MasterWine;
 }
+
+

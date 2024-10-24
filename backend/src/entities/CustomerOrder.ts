@@ -6,9 +6,6 @@ export class CustomerOrder {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @ManyToOne(() => WineProduct)
-  wine_product!: WineProduct;
-
   @Column({ type: 'int' })
   quantity!: number;
 
@@ -17,4 +14,7 @@ export class CustomerOrder {
 
   @Column({ type: 'varchar' })
   status!: string;
+
+  @ManyToOne(() => WineProduct)
+  wine_product: WineProduct;
 }

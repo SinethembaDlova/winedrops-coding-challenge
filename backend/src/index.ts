@@ -1,8 +1,6 @@
 import Fastify from "fastify";
 import 'reflect-metadata';
 import cors from '@fastify/cors';
-import wineRoutes from './routes/wine';
-import orderRoutes from './routes/order';
 import { AppDataSource } from './data-source';
 import * as dotenv from 'dotenv';
 
@@ -23,11 +21,6 @@ import * as dotenv from 'dotenv';
     console.error('Error during Data Source initialization:', err);
   });
 
-  // Register wine routes
-  wineRoutes(server);
-
-  // Register order routes
-  orderRoutes(server);
 
   // Start the server
   try {

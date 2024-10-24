@@ -1,0 +1,7 @@
+{
+  "type": "sqlite",
+  "database": "./backend/db/winedrops.db",
+  "entities": ["./backend/entities/*.ts"],
+  "synchronize": false,
+  "logging": true
+}
